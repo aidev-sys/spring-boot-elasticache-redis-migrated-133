@@ -1,11 +1,12 @@
 package com.javatechie.redis.entity;
 
 import java.io.Serializable;
+import jakarta.persistence.Id;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
 @RedisHash("Person")
-public class Person implements Serializable {
+public class PersonValkey implements Serializable {
     
 	private static final long serialVersionUID = 1L;
 	
@@ -30,18 +31,18 @@ public class Person implements Serializable {
 		this.name = name;
 	}
 
-	public Person(int id, String name) {
+	public PersonValkey(int id, String name) {
 		this.id = id;
 		this.name = name;
 	}
 	
-	public Person() {
+	public PersonValkey() {
 		
 	}
 
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + "]";
+		return "PersonValkey [id=" + id + ", name=" + name + "]";
 	}
     
 }

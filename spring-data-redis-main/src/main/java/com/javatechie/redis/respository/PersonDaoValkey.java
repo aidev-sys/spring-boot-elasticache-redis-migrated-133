@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class PersonDao {
+public class PersonDaoValkey {
 
     public static final String HASH_KEY = "Person";
     

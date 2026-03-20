@@ -1,0 +1,15 @@
+---
+applications:
+- name: spring-boot-elasticache-redis-modernized-spring-data-redis-main
+  memory: 1G
+  instances: 1
+  buildpacks:
+    - java_buildpack
+  path: spring-data-redis-main/target/*.jar
+  env:
+    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 21.+ } }'
+    SPRING_PROFILES_ACTIVE: cloud
+  services:
+    - modernized-postgres
+    - modernized-valkey
+

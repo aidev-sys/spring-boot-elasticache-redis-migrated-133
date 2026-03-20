@@ -3,7 +3,7 @@ package com.javatechie.redis.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
-import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
@@ -11,14 +11,14 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
 @EnableRedisRepositories
-public class RedisConfig {
+public class RedisConfigValkey {
 
     @Bean
-    public JedisConnectionFactory connectionFactory() {
+    public LettuceConnectionFactory connectionFactory() {
         RedisStandaloneConfiguration configuration = new RedisStandaloneConfiguration();
         configuration.setHostName("my-redis-store.5w9upe.0001.use2.cache.amazonaws.com");
         configuration.setPort(6379);
-        return new JedisConnectionFactory(configuration);
+        return new LettuceConnectionFactory(configuration);
     }
 
     @Bean
